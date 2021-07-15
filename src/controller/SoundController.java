@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import application.App;
@@ -51,10 +52,18 @@ public class SoundController extends AnimationTimer {
 				
 				//switch scene
 				//TODO Please help to implement mapView
-				App app = new App(this.mapNum,this.characterNum);
-		        Pane mapView = new Pane();
-		        mapView.getChildren().add(app);
-				application.Main.root.getChildren().add(mapView);
+				//App app = new App(this.mapNum,this.characterNum);
+				App app;
+				try {
+					app = new App(0,0);
+					Pane mapView = new Pane();
+			        mapView.getChildren().add(app);
+					application.Main.root.getChildren().add(mapView);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		        
 			}
 		}
 		
